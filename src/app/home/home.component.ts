@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   public form: FormGroup;
   public entityPrevList: EntityPrev[] = [];
-  public entitysList: EntityPrev[] = [];
+  public tableHiden: boolean = true;
+
   
   public listID: string[] = [];
 
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
       // console.log(event.target.value);
       selectedEntities.push(event.target.value);
     } else {
-      console.log(selectedEntities.indexOf( event.target.value ));
+     // console.log(selectedEntities.indexOf( event.target.value ));
       selectedEntities.splice( selectedEntities.indexOf( event.target.value ),1 );
     }
 
@@ -76,10 +77,22 @@ export class HomeComponent implements OnInit {
 
    }
 
- 
-
   submit(): void {
     this.listID = this.form.value.selectedEntities;
+    this.tableHiden = false;
    // console.log(this.form.value);
   }
+
+  reset(): void {
+    this.tableHiden = true;
+    this.listID = [];
+    this.entityPrevList = [];
+    this.form = this.fb.group({
+      selectedEntities:  new Array([])
+     });
+    this.getEntityPrevList();
+
+
+  }
+
 }

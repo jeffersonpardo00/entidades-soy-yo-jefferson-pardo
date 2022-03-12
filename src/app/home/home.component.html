@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="tableHiden">
     <form [formGroup] = "form" (ngSubmit)="submit()" novalidate>
       <div *ngFor="let prevEntity of entityPrevList; let i=index">
         <input type="checkbox" formArrayName="selectedEntities" [value]="prevEntity.entityId" (change)="onCheckboxChange($event)" 
@@ -11,10 +11,13 @@
     <p>{{ form.value | json }}</p>
   </section>
 
-  <section>
+  <section *ngIf="tableHiden === false">
     <app-table-space
-    [ListID] = "listID"
-    >
+    [ListID] = "listID">
 
     </app-table-space>
+
+    <button (click)="reset()">reset</button>
+    
 </section>
+

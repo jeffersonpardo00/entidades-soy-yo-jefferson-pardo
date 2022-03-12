@@ -13,6 +13,10 @@
         </tr>
     </thead>
     <tbody>
-       <app-entity-row *ngFor="let entity of entities" [entity] = "entity"></app-entity-row>
+       <app-entity-row *ngFor="let entity of entities" 
+       [entity] = "entity"
+       (deleteClicked)="deleteRow($event)"
+       (editClicked) = "saveEditedRow($event)"
+       ></app-entity-row>
     </tbody>
 </table>

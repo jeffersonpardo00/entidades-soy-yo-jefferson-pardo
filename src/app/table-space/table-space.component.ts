@@ -9,7 +9,6 @@ import { Entity } from './../models/entity';
   styleUrls: ['./table-space.component.scss']
 })
 export class TableSpaceComponent implements OnInit, OnChanges {
-
   
   @Input() ListID: string[] = [];
 
@@ -23,9 +22,9 @@ export class TableSpaceComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges():void{
-  //  console.log(this.ListID)
-  this.getEntityList();
-  console.log(this.entities);
+    //  console.log(this.ListID)
+    this.getEntityList();
+    // console.log(this.entities);
   }
 
   getEntityList(): void{
@@ -34,16 +33,35 @@ export class TableSpaceComponent implements OnInit, OnChanges {
      for(let value of this.ListID){
       this.entityListService.getEntity(value.toString())
        .subscribe (entity => {
-         
          const entityAux: Entity = entity.data
-         console.log(entityAux);
          list.push(entityAux);
-         
        });
      }
      
      this.entities = list;
 
    }
+
+  deleteRow(event:number): void{
+    //console.log(`delete ${event}`);
+    const listAux = this.entities.filter((entity) => entity.entityId !== event);
+    this.entities = listAux;
+    //console.log(this.entities);
+  }
+
+  saveEditedRow(event:Entity): void{
+    //console.log( event);
+    const listAux = this.entities.map((entity) => 
+    {
+      if(entity.entityId == event.entityId){
+          return event;
+      }else{
+        return entity;
+      }
+    });
+
+    this.entities = listAux;
+    console.log(this.entities);
+  }
 
 }

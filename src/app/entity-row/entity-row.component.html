@@ -1,41 +1,59 @@
-<td>{{entity.entityId}}</td>
-<td>{{entity.name}}</td>
-<td>{{entity.identificationNumber}}</td>
-<td>{{entity.expirationDate}}</td>
-<td>{{entity.contactName}}</td>
-<td>{{entity.contactMail}}</td>
-<td>{{entity.ipAddress}}</td>
-<td>{{entity.logo}}</td>
-<td>
+<td *ngIf="isEditing===false">{{entity.entityId}}</td>
+<td *ngIf="isEditing===false">{{entity.name}}</td>
+<td *ngIf="isEditing===false">{{entity.identificationNumber}}</td>
+<td *ngIf="isEditing===false">{{entity.expirationDate}}</td>
+<td *ngIf="isEditing===false">{{entity.contactName}}</td>
+<td *ngIf="isEditing===false">{{entity.contactMail}}</td>
+<td *ngIf="isEditing===false">{{entity.ipAddress}}</td>
+<td *ngIf="isEditing===false">{{entity.logo}}</td>
+<td *ngIf="isEditing===false">
     <button (click)="delete()">delete</button>
     <button (click)="edit()">edit</button>
 </td>
 
-<div>
+<td colspan="9" *ngIf="isEditing">
 <form [formGroup]= "form" (ngSubmit)="saveChanges($event)">
-    <label for="entityId">entityId</label>
-    <input placeholder="entityId" formControlName = "entityId" type="number">
-
-    <label for="name">name</label>
-    <input placeholder="name" formControlName = "name" type="text">
-
-    <label for="identificationNumber">identificationNumber</label>
-    <input placeholder="identificationNumber" formControlName = "identificationNumber" type="number">
-    <label for="expirationDate">expirationDate</label>
-    <input placeholder="expirationDate" formControlName = "expirationDate" type="text">
-    <label for="contactName">contactName</label>
-    <input placeholder="contactName" formControlName = "contactName" type="text">
-    <label for="contactMail">contactMail</label>
-    <input placeholder="contactMail" formControlName = "contactMail" type="text">
-    <label for="ipAddress">ipAddress</label>
-    <input placeholder="ipAddress" formControlName = "ipAddress" type="text">
-    <label for="logo">logo</label>
-    <input placeholder="logo" formControlName = "logo" type="text">
-
-    <button type="submit">
-        Guardar
-    </button>
-
+    <table>
+        <tr>
+            <td>
+                <label for="entityId">entityId</label>
+                <input placeholder="entityId" formControlName = "entityId" type="number"></td>
+            <td>
+                <label for="name">name</label>
+                <input placeholder="name" formControlName = "name" type="text"></td>
+            <td>
+                <label for="identificationNumber">identificationNumber</label>
+                <input placeholder="identificationNumber" formControlName = "identificationNumber" type="number">
+            </td>
+            <td>
+                <label for="expirationDate">expirationDate</label>
+                <input placeholder="expirationDate" formControlName = "expirationDate" type="text">
+            </td>
+            <td>
+                <label for="contactName">contactName</label>
+                <input placeholder="contactName" formControlName = "contactName" type="text">
+            </td>
+            <td>
+                <label for="contactMail">contactMail</label>
+                <input placeholder="contactMail" formControlName = "contactMail" type="text">
+            </td>
+            <td>
+                <label for="ipAddress">ipAddress</label>
+                <input placeholder="ipAddress" formControlName = "ipAddress" type="text">
+            </td>
+            <td>
+                <label for="logo">logo</label>
+                <input placeholder="logo" formControlName = "logo" type="text">
+            </td>
+            <td>
+                <button type="submit">
+                Guardar
+            </button>
+            </td>
+            
+        </tr>
+    </table>
+    
 </form>
 
-</div>
+</td>
