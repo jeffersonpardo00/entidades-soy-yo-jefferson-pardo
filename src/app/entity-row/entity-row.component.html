@@ -1,0 +1,41 @@
+<td>{{entity.entityId}}</td>
+<td>{{entity.name}}</td>
+<td>{{entity.identificationNumber}}</td>
+<td>{{entity.expirationDate}}</td>
+<td>{{entity.contactName}}</td>
+<td>{{entity.contactMail}}</td>
+<td>{{entity.ipAddress}}</td>
+<td>{{entity.logo}}</td>
+<td>
+    <button (click)="delete()">delete</button>
+    <button (click)="edit()">edit</button>
+</td>
+
+<div>
+<form [formGroup]= "form" (ngSubmit)="saveChanges($event)">
+    <label for="entityId">entityId</label>
+    <input placeholder="entityId" formControlName = "entityId" type="number">
+
+    <label for="name">name</label>
+    <input placeholder="name" formControlName = "name" type="text">
+
+    <label for="identificationNumber">identificationNumber</label>
+    <input placeholder="identificationNumber" formControlName = "identificationNumber" type="number">
+    <label for="expirationDate">expirationDate</label>
+    <input placeholder="expirationDate" formControlName = "expirationDate" type="text">
+    <label for="contactName">contactName</label>
+    <input placeholder="contactName" formControlName = "contactName" type="text">
+    <label for="contactMail">contactMail</label>
+    <input placeholder="contactMail" formControlName = "contactMail" type="text">
+    <label for="ipAddress">ipAddress</label>
+    <input placeholder="ipAddress" formControlName = "ipAddress" type="text">
+    <label for="logo">logo</label>
+    <input placeholder="logo" formControlName = "logo" type="text">
+
+    <button type="submit">
+        Guardar
+    </button>
+
+</form>
+
+</div>

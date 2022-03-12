@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>entityId</th>
+            <th>name</th>
+            <th>identificationNumber</th>
+            <th>expirationDate</th>
+            <th>contactName</th>
+            <th>contactMail</th>
+            <th>ipAddress</th>
+            <th>logo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+       <app-entity-row *ngFor="let entity of entities" [entity] = "entity"></app-entity-row>
+    </tbody>
+</table>
