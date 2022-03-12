@@ -1,15 +1,19 @@
 <table>
     <thead>
         <tr>
-            <th>entityId</th>
-            <th>name</th>
-            <th>identificationNumber</th>
-            <th>expirationDate</th>
-            <th>contactName</th>
-            <th>contactMail</th>
-            <th>ipAddress</th>
-            <th>logo</th>
-            <th>Actions</th>
+            <th>ID de entidad</th>
+            <th>Nombre de entidad <br/>
+                <button (click)="orderNameToggle($event)">DES</button>
+            </th>
+            <th>Número de identificación de la entidad</th>
+            <th>Fecha de expiración <br/>
+                <button (click)="orderDateToggle($event)">DES</button>
+            </th>
+            <th>Nombre de contacto</th>
+            <th>Correo de contacto</th>
+            <th>Dirección IP</th>
+            <th>Logo o imagen</th>
+            <th>acciones</th>
         </tr>
     </thead>
     <tbody>

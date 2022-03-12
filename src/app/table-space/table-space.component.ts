@@ -12,7 +12,11 @@ export class TableSpaceComponent implements OnInit, OnChanges {
   
   @Input() ListID: string[] = [];
 
-  entities : Entity[] = [];
+  public entities : Entity[] = [];
+
+  private nameToggleStatus: string = "DES";
+  private dateToggleStatus: string = "DES";
+
 
   constructor(
     private entityListService : EntityListService
@@ -63,5 +67,57 @@ export class TableSpaceComponent implements OnInit, OnChanges {
     this.entities = listAux;
     console.log(this.entities);
   }
+
+  orderNameToggle(event:any): void{
+    console.log( event.target);
+    switch(this.nameToggleStatus){
+      case "DES":
+        this.entities.sort(function(a, b){
+          if(a.name < b.name) { return -1; }
+          if(a.name > b.name) { return 1; }
+          return 0;
+        });
+        this.nameToggleStatus = "ASC";
+        event.target.innerHTML = "ASC";
+      break;
+      case "ASC":
+        this.entities.sort(function(a, b){
+          if(a.name < b.name) { return 1; }
+          if(a.name > b.name) { return -1; }
+          return 0;
+        });
+        this.nameToggleStatus = "DES";
+        event.target.innerHTML = "DES";
+      break;
+    }
+    
+  }
+
+  orderDateToggle(event:any): void{
+    console.log(event);
+  switch(this.dateToggleStatus){
+    case "DES":
+      this.entities.sort(function(a, b){
+        if(a.expirationDate < b.expirationDate) { return -1; }
+        if(a.expirationDate > b.expirationDate) { return 1; }
+        return 0;
+      });
+      this.dateToggleStatus = "ASC";
+      event.target.innerHTML = "ASC";
+    break;
+    case "ASC":
+      this.entities.sort(function(a, b){
+        if(a.expirationDate < b.expirationDate) { return 1; }
+        if(a.expirationDate > b.expirationDate) { return -1; }
+        return 0;
+      });
+      this.dateToggleStatus = "DES";
+      event.target.innerHTML = "DES";
+    break;
+  }
+
+    
+  }
+
 
 }
