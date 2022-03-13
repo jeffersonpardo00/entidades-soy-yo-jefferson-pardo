@@ -1,4 +1,5 @@
 <section *ngIf="tableHiden">
+
     <form [formGroup] = "form" (ngSubmit)="submit()" novalidate>
       <div *ngFor="let prevEntity of entityPrevList; let i=index">
         <input type="checkbox" formArrayName="selectedEntities" [value]="prevEntity.entityId" (change)="onCheckboxChange($event)" 
@@ -7,9 +8,12 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-  
-    <p>{{ form.value | json }}</p>
-  </section>
+
+    <div *ngIf="displayError" class="errorMessage">
+      <p *ngFor="let message of messageError" >{{message}}</p>
+    </div>
+
+</section>
 
   <section *ngIf="tableHiden === false">
     <app-table-space

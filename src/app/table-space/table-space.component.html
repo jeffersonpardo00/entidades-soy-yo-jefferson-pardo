@@ -24,3 +24,8 @@
        ></app-entity-row>
     </tbody>
 </table>
+
+
+<div *ngIf="displayError" class="errorMessage">
+    <p *ngFor="let message of messageError" >{{message}}</p>
+</div>

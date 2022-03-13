@@ -2,6 +2,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { EntityListService } from './../services/entity-list.service';
 import { Entity } from './../models/entity';
+import { throwError, of } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table-space',
@@ -16,7 +18,8 @@ export class TableSpaceComponent implements OnInit, OnChanges {
 
   private nameToggleStatus: string = "DES";
   private dateToggleStatus: string = "DES";
-
+  public displayError: boolean = false;
+  public messageError: string[] = [];
 
   constructor(
     private entityListService : EntityListService
@@ -34,13 +37,40 @@ export class TableSpaceComponent implements OnInit, OnChanges {
   getEntityList(): void{
     
     let list:Entity[] = [];
-     for(let value of this.ListID){
-      this.entityListService.getEntity(value.toString())
-       .subscribe (entity => {
-         const entityAux: Entity = entity.data
-         list.push(entityAux);
-       });
-     }
+   
+      for(let value of this.ListID){
+        this.entityListService.getEntity(value.toString())
+        .pipe(
+          catchError(err => {
+            console.log('error', err);
+            return throwError(err);
+          })
+        )
+         .subscribe (entity => {
+           if(entity.type === "success"){
+
+              if( Object.keys(entity.data).length === 0 ){
+
+                console.log(`error: ${entity.message}, code: ${entity.code}, traceId: ${entity.traceId}`);
+                this.messageError.push(`error: ${entity.message}, code: ${entity.code}, traceId: ${entity.traceId}`);
+                this.displayError = true;
+                
+              }else{
+                const entityAux: Entity = entity.data
+                list.push(entityAux);
+              }
+
+           }else{
+            console.log(`error: ${entity.message}, code: ${entity.code}, traceId: ${entity.traceId}`);
+            this.messageError.push(`error: ${entity.message}, code: ${entity.code}, traceId: ${entity.traceId}`);
+            this.displayError = true;
+           }
+           
+         })
+         ;
+       }
+   
+     
      
      this.entities = list;
 
