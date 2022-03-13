@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,7 @@ export class EntityListService {
 
   getEntity(id:string): Observable<any> 
   {
-    //return this.http.get<any>(`${environment.url_api}${id}`)
-    return this.http.get<any>(`${environment.url_api}`)
+    return this.http.get<any>(`${environment.url_api}${id}`)
     .pipe(catchError(this.handleError));
     ;
   }

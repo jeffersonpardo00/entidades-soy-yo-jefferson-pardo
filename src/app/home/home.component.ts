@@ -6,7 +6,7 @@ import { EntityPrev } from './../models/entity-prev';
 //import { Entity } from './../models/entity';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',

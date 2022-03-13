@@ -2,8 +2,8 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { EntityListService } from './../services/entity-list.service';
 import { Entity } from './../models/entity';
-import { throwError, of } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { throwError} from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table-space',
