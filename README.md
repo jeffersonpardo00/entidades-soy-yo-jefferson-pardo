@@ -11,8 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## ¿Cómo ejecutar la aplicación de manera local?
 
-1. Instale la última versión de Node.js: 
-[Instalar Node.js] (https://nodejs.org/es/download/)
+1. Instale la última versión de Node.js: [Instalar Node.js](https://nodejs.org/es/download/)
 2. Descargue o clone el repositorio
 3. Abra la Ventana de comandos en la ruta en la que se descargaron los archivos
 4. Instale la librería http-server con el comando: 
@@ -27,12 +26,12 @@ cd dist/entidades-soy-yo-jefferson-pardo
 ```
 http-server
 ```
-7. Abra en el navegador y use la siguiente url: http://127.0.0.1:8080/index.html
+7. Abra en el navegador y use la siguiente url:
 ```
 http://127.0.0.1:8080/index.html
 ```
 
 ## Autor:
 - Jefferson Pardo
-- [LinkedIn] (https://www.linkedin.com/in/jefferson-pardo/)
-- mira un poco de mi trabajo: [portafolio] (https://defineme-bca4e.web.app/profile/1)
+- [LinkedIn](https://www.linkedin.com/in/jefferson-pardo/)
+- mira un poco de mi trabajo: [portafolio](https://defineme-bca4e.web.app/profile/1)
