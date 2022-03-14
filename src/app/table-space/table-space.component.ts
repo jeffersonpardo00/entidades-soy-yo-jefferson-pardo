@@ -21,6 +21,9 @@ export class TableSpaceComponent implements OnInit, OnChanges {
   public displayError: boolean = false;
   public messageError: string[] = [];
 
+  public iconOrderName: string = "fa-chevron-down";
+  public iconOrderDate: string = "fa-chevron-down";
+
   constructor(
     private entityListService : EntityListService
   ) { }

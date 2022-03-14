@@ -3,5 +3,45 @@
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
+    background-color: white;
+    margin-bottom: 0.3rem;
+    width: 100%;
 }
     
+.entities-row__comp
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.entities-row__img
+{
+    width: 100px;
+}
+
+.entities-row__form
+{
+    width: 100%;
+    position: relative;
+}
+
+.entities-row__form-table
+{
+    width: 100%;
+}
+
+.entities-row__form-edit input
+{
+    width: 100%;
+}
+
+.entities-row__form-edit
+{
+    display: flex;
+    
+    width: 100%;
+    div{
+        padding: 0 0.3rem;
+    }
+}

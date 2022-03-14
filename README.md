@@ -32,6 +32,5 @@ http://127.0.0.1:8080/index.html
 ```
 
 ## Autor:
-- Jefferson Pardo
-- [LinkedIn](https://www.linkedin.com/in/jefferson-pardo/)
-- mira un poco de mi trabajo: [portafolio](https://defineme-bca4e.web.app/profile/1)
+- Jefferson Pardo [LinkedIn](https://www.linkedin.com/in/jefferson-pardo/)
+- Mira un poco de mi trabajo: [portafolio](https://defineme-bca4e.web.app/profile/1)

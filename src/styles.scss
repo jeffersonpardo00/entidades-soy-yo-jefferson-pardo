@@ -1,1 +1,125 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --colorPrincipal: #5a33ff;
+    --colorPrincipalOscuro: #392396;
+    --ligthBackground: #f3f4f9;
+    --darkBackground: #dbdfe5;
+}
+*{
+  box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    color: rgb(24, 24, 24);
+    
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content{
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button
+{
+    font-size: 1.1rem;
+    border: none;
+    background-color: var(--colorPrincipal);
+    border-radius: 0.2rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button:hover
+{
+    background-color: var(--colorPrincipalOscuro);
+}
+
+.button--small
+{
+    display: inline-block;
+    font-size: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.button--alert
+{
+    background-color: rgb(199, 15, 15);
+}
+
+
+.check-box{
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    
+  }
+
+  span:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  
+
+  input[type="checkbox"]:checked {
+
+    ~ span {
+        background-color: #2196F3;
+      }
+
+    ~ span:after {
+        display: block;
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+    }
+    
+  }
+  
+}
+
+.check-box:hover{
+    input[type="checkbox"] ~ span{
+        background-color: #ccc;
+      }
+  }

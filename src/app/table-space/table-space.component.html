@@ -1,31 +1,39 @@
-<table>
-    <thead>
-        <tr>
-            <th>ID de entidad</th>
-            <th>Nombre de entidad <br/>
-                <button (click)="orderNameToggle($event)">DES</button>
-            </th>
-            <th>Número de identificación de la entidad</th>
-            <th>Fecha de expiración <br/>
-                <button (click)="orderDateToggle($event)">DES</button>
-            </th>
-            <th>Nombre de contacto</th>
-            <th>Correo de contacto</th>
-            <th>Dirección IP</th>
-            <th>Logo o imagen</th>
-            <th>acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-       <app-entity-row *ngFor="let entity of entities" 
-       [entity] = "entity"
-       (deleteClicked)="deleteRow($event)"
-       (editClicked) = "saveEditedRow($event)"
-       ></app-entity-row>
-    </tbody>
-</table>
-
-
-<div *ngIf="displayError" class="errorMessage">
-    <p *ngFor="let message of messageError" >{{message}}</p>
+<div class="table-space__content">
+    <table class="entities-table">
+        <thead class="entities-table__head">
+            <tr>
+                <th>ID de entidad</th>
+                <th>
+                    <div class="entities-table__comp">
+                        <span>Nombre de entidad</span>
+                        <button class="button button--small" (click)="orderNameToggle($event)">DES</button>
+                    </div>
+                </th>
+                <th>Número de identificación de la entidad</th>
+                <th>
+                    <div class="entities-table__comp">
+                        <span>Fecha de expiración</span>
+                        <button class="button button--small" (click)="orderDateToggle($event)">DES</button>
+                    </div>
+                </th>
+                <th>Nombre de contacto</th>
+                <th>Correo de contacto</th>
+                <th>Dirección IP</th>
+                <th>Logo o imagen</th>
+                <th>acciones</th>
+            </tr>
+        </thead>
+        <tbody class="entities-table__body">
+           <app-entity-row *ngFor="let entity of entities" 
+           [entity] = "entity"
+           (deleteClicked)="deleteRow($event)"
+           (editClicked) = "saveEditedRow($event)"
+           ></app-entity-row>
+        </tbody>
+    </table>
+    
+    
+    <div *ngIf="displayError" class="errorMessage">
+        <p *ngFor="let message of messageError" >{{message}}</p>
+    </div>
 </div>

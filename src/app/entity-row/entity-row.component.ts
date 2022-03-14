@@ -34,15 +34,24 @@ export class EntityRowComponent implements OnInit {
     this.form = this.formBuilder.group({
       entityId:[0],
       name:[''],
-      identificationNumber:[0],
-      expirationDate: [''],
+      identificationNumber:[0,[ Validators.maxLength(12)]],
+      expirationDate: ['',[ Validators.pattern('[0-9]{4}\-[0-9]{2}\-[0-9]{2}')]],
       contactName:[''],
-      contactMail:[''],
+      contactMail:['',[Validators.email]],
       ipAddress:[''],
       logo:['']
     });
 
+    this.form.controls['entityId'].disable();
+
+    //console.log(this.form.get('expirationDate'));
+
    }
+
+   get expirationDate() {
+   // console.log(this.form.get('expirationDate'));
+    return Boolean(this.form.get('expirationDate')?.errors);
+  }
 
   ngOnInit(): void {
   }

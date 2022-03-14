@@ -5,15 +5,19 @@
 <td *ngIf="isEditing===false">{{entity.contactName}}</td>
 <td *ngIf="isEditing===false">{{entity.contactMail}}</td>
 <td *ngIf="isEditing===false">{{entity.ipAddress}}</td>
-<td *ngIf="isEditing===false">{{entity.logo}}</td>
+<td *ngIf="isEditing===false"><img class="entities-row__img" src="{{entity.logo}}" alt="logo {{entity.name}}"></td>
 <td *ngIf="isEditing===false">
-    <button (click)="delete()">delete</button>
-    <button (click)="edit()">edit</button>
+    <div class="entities-row__comp">
+        <button class="button button--small" (click)="delete()">DEL</button>
+        <button class="button button--small" (click)="edit()">EDIT</button>
+    </div>
+    
 </td>
 
 <td colspan="9" *ngIf="isEditing">
-<form [formGroup]= "form" (ngSubmit)="saveChanges($event)">
-    <table>
+<form class="entities-row__form" [formGroup]= "form" (ngSubmit)="saveChanges($event)">
+    <!--
+    <table class="entities-row__form-table">
         <tr>
             <td>
                 <label for="entityId">entityId</label>
@@ -46,13 +50,55 @@
                 <input placeholder="logo" formControlName = "logo" type="text">
             </td>
             <td>
-                <button type="submit">
-                Guardar
-            </button>
+                <button class="button button--small" type="submit">
+                    Guardar
+                </button>
             </td>
             
         </tr>
     </table>
+-->
+    <div class="entities-row__form-edit">
+       
+            <div>
+                <label for="entityId">entityId</label>
+                <input placeholder="entityId" formControlName = "entityId" type="number">
+            </div>
+            <div>
+                <label for="name">name</label>
+                <input placeholder="name" formControlName = "name" type="text"></div>
+            <div>
+                <label for="identificationNumber">identificationNumber</label>
+                <input placeholder="identificationNumber" formControlName = "identificationNumber" type="number">
+            </div>
+            <div>
+                <label for="expirationDate">expirationDate</label>
+                <input placeholder="expirationDate" formControlName = "expirationDate" type="text">
+            </div>
+            <div>
+                <label for="contactName">contactName</label>
+                <input placeholder="contactName" formControlName = "contactName" type="text">
+            </div>
+            <div>
+                <label for="contactMail">contactMail</label>
+                <input placeholder="contactMail" formControlName = "contactMail" type="text">
+            </div>
+            <div>
+                <label for="ipAddress">ipAddress</label>
+                <input placeholder="ipAddress" formControlName = "ipAddress" type="text">
+            </div>
+            <div>
+                <label for="logo">logo</label>
+                <input placeholder="logo" formControlName = "logo" type="text">
+            </div>
+            <div>
+                <button class="button button--small" type="submit">
+                    Guardar
+                </button>
+            </div>
+    
+    </div>
+
     
 </form>
 

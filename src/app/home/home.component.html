@@ -1,19 +1,30 @@
-<section *ngIf="tableHiden">
 
-    <form [formGroup] = "form" (ngSubmit)="submit()" novalidate>
-      <div *ngFor="let prevEntity of entityPrevList; let i=index">
-        <input type="checkbox" formArrayName="selectedEntities" [value]="prevEntity.entityId" (change)="onCheckboxChange($event)" 
-        />
-        {{ prevEntity.name}}
+<div class="content">
+  <section class="home-form" *ngIf="tableHiden">
+    <div class="home-form__content">
+      <form class="home-form__form" [formGroup] = "form" (ngSubmit)="submit()" novalidate>
+        <ul class="home-form__list">
+          <li class="home-form__list-item" *ngFor="let prevEntity of entityPrevList; let i=index">
+            <label class="check-box">
+              {{ prevEntity.name}}
+              <input type="checkbox" formArrayName="selectedEntities" [value]="prevEntity.entityId" (change)="onCheckboxChange($event)"/>
+              <span></span>
+            </label>
+          </li>
+        </ul>
+        <div class="home-form__button">
+          <button class="button" type="submit">Crear Tabla</button>
+        </div>
+        
+      </form>
+
+      <div *ngIf="displayError" class="errorMessage">
+        <p *ngFor="let message of messageError" >{{message}}</p>
       </div>
-      <button type="submit">Submit</button>
-    </form>
-
-    <div *ngIf="displayError" class="errorMessage">
-      <p *ngFor="let message of messageError" >{{message}}</p>
     </div>
+    
 
-</section>
+  </section>
 
   <section *ngIf="tableHiden === false">
     <app-table-space
@@ -21,7 +32,12 @@
 
     </app-table-space>
 
-    <button (click)="reset()">reset</button>
+    <div class="home-form__button">
+      <button class="button button--alert" (click)="reset()">reset</button>
+    </div>
+   
     
-</section>
+  </section>
+</div>
+
 

@@ -1,0 +1,34 @@
+
+:host
+{
+    width: 100%;
+    font-size: 0.9rem;
+    position: relative;
+    
+}
+
+.table-space__content
+{
+    width: 100%;
+    padding: 3rem 2rem;
+}
+
+.entities-table{
+    width: 100%;
+    padding: 0.2rem;
+    &__head{
+        background-color: var(--darkBackground);
+        th{
+            padding: 1rem 0;
+        }
+    }
+    &__body{
+        background-color: var(--ligthBackground);
+    }
+    &__comp{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+   
+}
